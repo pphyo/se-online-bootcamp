@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="frame" stylesheets="@common.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.bcmp.views.RootFrame">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="side-bar">
+         <children>
+            <HBox>
+               <children>
+                  <SVGPath content="M28.513 13.024h-9.432l-5.724 6.696h-11.281l3.044-3.587h-3.624c-0.823 0-1.496 0.688-1.496 1.533v3.237c0 0.844 0.673 1.533 1.496 1.533h17.244c0.823 0 1.947-0.512 2.499-1.139l7.233-8.228zM27.016 14.729l-1.001 1.14zM30.504 9.563h-17.195c-0.823 0-1.949 0.512-2.501 1.137l-7.32 8.277h9.396l5.824-6.693h11.232l-3.017 3.585h3.581c0.823 0 1.496-0.691 1.496-1.535v-3.237c0-0.844-0.673-1.533-1.496-1.535zM28.011 13.595l-0.632 0.721z" fill="#f38020" styleClass="svg-path" />
+                  <Label styleClass="app-logo-label" text="Mini POS" />
+               </children>
+               <styleClass>
+                  <String fx:value="app-logo" />
+                  <String fx:value="spac10" />
+                  <String fx:value="pad10" />
+                  <String fx:value="ali-c" />
+               </styleClass>
+            </HBox>
+            <VBox fx:id="menuBtnHolder" prefHeight="200.0" prefWidth="100.0" styleClass="menu-btn-wrap" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox onMouseClicked="#loadDashboardView">
+                     <children>
+                        <VBox>
+                           <children>
+                              <SVGPath content="M12 15.984q-0.422-0.328-3.82-2.977t-5.18-4.008l9-6.984 9 6.984q-1.781 1.359-5.156 3.984t-3.844 3zM12 18.563l7.359-5.766 1.641 1.266-9 6.984-9-6.984 1.641-1.266z" />
+                           </children>
+                           <styleClass>
+                              <String fx:value="ali-c" />
+                              <String fx:value="wid20" />
+                           </styleClass>
+                        </VBox>
+                        <Label text="Pos Dashboard" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="ali-cl" />
+                        <String fx:value="spac10" />
+                        <String fx:value="pad10" />
+                        <String fx:value="menu-btn" />
+                        <String fx:value="active" />
+                     </styleClass>
+                  </HBox>
+                  <HBox onMouseClicked="#loadSaleView">
+                     <children>
+                        <VBox>
+                           <children>
+                              <SVGPath content="M12 12.984q2.063 0 3.539-1.453t1.477-3.516h-2.016q0 1.219-0.891 2.109t-2.109 0.891-2.109-0.891-0.891-2.109h-2.016q0 2.063 1.477 3.516t3.539 1.453zM12 3q-1.219 0-2.109 0.891t-0.891 2.109h6q0-1.219-0.891-2.109t-2.109-0.891zM18.984 6q0.797 0 1.406 0.609t0.609 1.406v12q0 0.797-0.609 1.383t-1.406 0.586h-13.969q-0.797 0-1.406-0.586t-0.609-1.383v-12q0-0.797 0.609-1.406t1.406-0.609h1.969q0-2.063 1.477-3.539t3.539-1.477 3.539 1.477 1.477 3.539h1.969z" />
+                           </children>
+                           <styleClass>
+                              <String fx:value="ali-c" />
+                              <String fx:value="wid20" />
+                           </styleClass>
+                        </VBox>
+                        <Label text="Sale" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="ali-cl" />
+                        <String fx:value="spac10" />
+                        <String fx:value="pad10" />
+                        <String fx:value="menu-btn" />
+                     </styleClass>
+                  </HBox>
+                  <HBox onMouseClicked="#loadCategoryView">
+                     <children>
+                        <VBox>
+                           <children>
+                              <SVGPath content="M5.859 19.734v-6.328l3.469 8.344h-1.453q-0.797 0-1.406-0.609t-0.609-1.406zM7.875 8.766q0.422 0 0.703-0.305t0.281-0.727-0.281-0.703-0.703-0.281-0.703 0.281-0.281 0.703 0.281 0.727 0.703 0.305zM22.031 15.938q0.141 0.281 0.141 0.75 0 0.563-0.352 1.125t-0.867 0.75l-7.359 3.047q-0.281 0.141-0.75 0.141-0.563 0-1.102-0.352t-0.773-0.867l-4.969-12q-0.141-0.281-0.141-0.75 0-0.563 0.352-1.078t0.867-0.75l7.406-3.047q0.422-0.141 0.797-0.141 0.516 0 1.031 0.352t0.75 0.867zM2.531 19.641q-0.75-0.328-1.078-1.078t0-1.5l2.438-5.859v9z" />
+                           </children>
+                           <styleClass>
+                              <String fx:value="ali-c" />
+                              <String fx:value="wid20" />
+                           </styleClass>
+                        </VBox>
+                        <Label text="Category" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="ali-cl" />
+                        <String fx:value="spac10" />
+                        <String fx:value="pad10" />
+                        <String fx:value="menu-btn" />
+                     </styleClass>
+                  </HBox>
+                  <HBox onMouseClicked="#loadProductView">
+                     <children>
+                        <VBox>
+                           <children>
+                              <SVGPath content="M20.016 14.016v-6h-5.109l2.109 2.813-1.641 1.172q-3-4.078-3.375-4.594-0.375 0.516-3.375 4.594l-1.641-1.172 2.109-2.813h-5.109v6h16.031zM20.016 18.984v-1.969h-16.031v1.969h16.031zM9 3.984q-0.422 0-0.703 0.305t-0.281 0.727 0.281 0.703 0.703 0.281 0.703-0.281 0.281-0.703-0.281-0.727-0.703-0.305zM15 3.984q-0.422 0-0.703 0.305t-0.281 0.727 0.281 0.703 0.703 0.281 0.703-0.281 0.281-0.703-0.281-0.727-0.703-0.305zM20.016 6q0.844 0 1.406 0.586t0.563 1.43v10.969q0 0.844-0.563 1.43t-1.406 0.586h-16.031q-0.844 0-1.406-0.586t-0.563-1.43v-10.969q0-0.844 0.563-1.43t1.406-0.586h2.203q-0.188-0.656-0.188-0.984 0-1.219 0.891-2.109t2.109-0.891q1.547 0 2.484 1.313l0.516 0.703 0.516-0.703q0.328-0.563 1.078-0.938t1.406-0.375q1.219 0 2.109 0.891t0.891 2.109q0 0.328-0.188 0.984h2.203z" />
+                           </children>
+                           <styleClass>
+                              <String fx:value="ali-c" />
+                              <String fx:value="wid20" />
+                           </styleClass>
+                        </VBox>
+                        <Label text="Product" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="ali-cl" />
+                        <String fx:value="spac10" />
+                        <String fx:value="pad10" />
+                        <String fx:value="menu-btn" />
+                     </styleClass>
+                  </HBox>
+                  <HBox onMouseClicked="#loadSaleHistoryView">
+                     <children>
+                        <VBox>
+                           <children>
+                              <SVGPath content="M13.359 20.016l0.563 1.969h-8.906q-0.844 0-1.43-0.586t-0.586-1.383v-14.016q0-0.844 0.586-1.43t1.43-0.586h0.984v-1.969h2.016v1.969h7.969v-1.969h2.016v1.969h0.984q0.844 0 1.43 0.586t0.586 1.43v8.906l-2.016-0.563v-4.359h-13.969v10.031h8.344zM21.703 21.281l-3.234-3.234 2.531-1.031-6.984-2.016 1.969 6.984 1.078-2.484 3.234 3.188zM12 17.016v-5.016h-5.016v5.016h5.016z" />
+                           </children>
+                           <styleClass>
+                              <String fx:value="ali-c" />
+                              <String fx:value="wid20" />
+                           </styleClass>
+                        </VBox>
+                        <Label text="Sale Histroy" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="ali-cl" />
+                        <String fx:value="spac10" />
+                        <String fx:value="pad10" />
+                        <String fx:value="menu-btn" />
+                     </styleClass>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox HBox.hgrow="ALWAYS">
+         <children>
+            <HBox>
+               <children>
+                  <HBox styleClass="ali-cl" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="title" styleClass="view-title-label" text="POS Dashboard" />
+                     </children>
+                  </HBox>
+                  <VBox onMouseClicked="#exit">
+                     <children>
+                        <SVGPath content="M24 14c0 6.609-5.391 12-12 12s-12-5.391-12-12c0-3.797 1.75-7.297 4.797-9.578 0.891-0.672 2.141-0.5 2.797 0.391 0.672 0.875 0.484 2.141-0.391 2.797-2.031 1.531-3.203 3.859-3.203 6.391 0 4.406 3.594 8 8 8s8-3.594 8-8c0-2.531-1.172-4.859-3.203-6.391-0.875-0.656-1.062-1.922-0.391-2.797 0.656-0.891 1.922-1.062 2.797-0.391 3.047 2.281 4.797 5.781 4.797 9.578zM14 2v10c0 1.094-0.906 2-2 2s-2-0.906-2-2v-10c0-1.094 0.906-2 2-2s2 0.906 2 2z" styleClass="exit-btn-svg" />
+                        <Label styleClass="exit-btn-label" text="Exit" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="ali-c" />
+                        <String fx:value="exit-btn" />
+                     </styleClass>
+                  </VBox>
+               </children>
+               <styleClass>
+                  <String fx:value="app-logo" />
+                  <String fx:value="pad10" />
+                  <String fx:value="ali-cl" />
+               </styleClass>
+            </HBox>
+            <StackPane fx:id="viewHolder" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </children>
+</HBox>
