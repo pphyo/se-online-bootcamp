@@ -117,7 +117,7 @@
                               <String fx:value="wid20" />
                            </styleClass>
                         </VBox>
-                        <Label text="Sale Histroy" />
+                        <Label text="Sale History" />
                      </children>
                      <styleClass>
                         <String fx:value="ali-cl" />
