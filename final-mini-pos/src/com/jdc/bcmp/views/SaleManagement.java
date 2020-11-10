@@ -1,5 +1,5 @@
 package com.jdc.bcmp.views;
 
-public class Product {
+public class SaleManagement {
 
 }

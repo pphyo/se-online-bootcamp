@@ -26,17 +26,17 @@ public class RootFrame {
 	
 	public void loadSaleView(MouseEvent event) {
 		changeActive(event);
-		loadView("Sale", "Sale");
+		loadView("Sale", "SaleManagement");
 	}
 	
 	public void loadCategoryView(MouseEvent event) {
 		changeActive(event);
-		loadView("Categories", "Category");
+		loadView("Categories", "CategoryManagement");
 	}
 	
 	public void loadProductView(MouseEvent event) {
 		changeActive(event);
-		loadView("Products", "Product");
+		loadView("Products", "ProductManagement");
 	}
 	
 	public void loadSaleHistoryView(MouseEvent event) {

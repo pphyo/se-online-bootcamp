@@ -79,6 +79,66 @@
 	-fx-cursor: hand;
 }
 
+.view-frame {
+	-fx-pref-width: 900px;
+	-fx-pref-height: 580px;
+}
+
+.search-bar {
+	-fx-pref-height: 50px;
+}
+
+.cat-box {
+	-fx-pref-width: 212px;
+	-fx-pref-height: 90px;
+	-fx-background-color: p;
+	-fx-background-radius: 20px;
+	-fx-border-radius: 20px;
+}
+
+.cat-box:hover {
+	-fx-cursor: hand;
+}
+
+.cat-box > Label {
+	-fx-font-size: 15px;
+	-fx-text-fill: s;
+	-fx-font-family: "Times New Roman";
+}
+
+.cat-box:hover > Label {
+	-fx-text-fill: h;
+}
+
+.scroll-pane {
+	-fx-padding: 0 10 10 10;
+	-fx-fit-to-width: true;
+}
+
+TilePane {
+	-fx-vgap: 10px;
+	-fx-hgap: 10px;
+}
+
+TextField {
+	-fx-pref-width: 150px;
+	-fx-background-color: transparent;
+	-fx-border-color: p;
+	-fx-border-width: 1;
+	-fx-prompt-text-fill: p;
+}
+
+.btn {
+	-fx-pref-width: 80px;
+	-fx-background-color: p;
+	-fx-text-fill: s;
+}
+
+.btn:hover {
+	-fx-text-fill: h;
+	-fx-cursor: hand;
+}
+
 .wid20 {
 	-fx-pref-width: 25px;
 }
