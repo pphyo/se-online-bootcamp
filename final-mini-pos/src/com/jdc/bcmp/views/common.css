@@ -110,7 +110,7 @@
 	-fx-text-fill: h;
 }
 
-.scroll-pane {
+.scrl-pane {
 	-fx-padding: 0 10 10 10;
 	-fx-fit-to-width: true;
 }
@@ -121,6 +121,32 @@ TilePane {
 }
 
 TextField {
+	-fx-pref-width: 150px;
+	-fx-background-color: transparent;
+	-fx-border-color: p;
+	-fx-border-width: 1;
+	-fx-prompt-text-fill: p;
+}
+
+.text-area {
+	-fx-pref-width: 170px;
+	-fx-background-color: transparent;
+	-fx-border-color: p;
+	-fx-border-width: 1;
+	-fx-prompt-text-fill: p;
+}
+
+.table-column {
+	-fx-background-color: p;
+	-fx-border-color: h;
+	-fx-border-width: 1px;
+}
+
+.table-column > .label {
+	-fx-text-fill: s;
+}
+
+.combo-box {
 	-fx-pref-width: 150px;
 	-fx-background-color: transparent;
 	-fx-border-color: p;
@@ -155,10 +181,37 @@ TextField {
 	-fx-padding: 10px;
 }
 
+.pad10-rbl {
+	-fx-padding: 0 10 10 10;
+}
+
 .ali-c {
 	-fx-alignment: center;
 }
 
 .ali-cl {
 	-fx-alignment: center-left;
+}
+
+.edit-view-frame {
+	-fx-pref-width: 400px;
+	-fx-pref-height: 370px;
+}
+
+.edit-title {
+	-fx-pref-height: 80px;
+	-fx-background-color: p;
+}
+
+.edit-title > Label {
+	-fx-font-size: 22px;
+	-fx-text-fill: s;
+	-fx-font-family: "Adobe Devanagari";
+	-fx-font-weight: bold;
+}
+
+.info-text {
+	-fx-font-size: 12px;
+	-fx-text-fill: r;
+	-fx-font-family: "Times New Roman";
 }
