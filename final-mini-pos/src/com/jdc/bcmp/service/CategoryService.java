@@ -1,5 +1,8 @@
 package com.jdc.bcmp.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,6 +58,14 @@ public class CategoryService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public void upload(File file) throws IOException {
+		Files.lines(file.toPath()).map(s -> {
+			Category c = new Category();
+			c.setName(s);
+			return c;
+		}).forEach(this::save);
 	}
 
 }

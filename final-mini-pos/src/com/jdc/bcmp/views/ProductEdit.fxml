@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox styleClass="edit-view-frame" stylesheets="@common.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.jdc.bcmp.views.ProductEdit">
+<VBox styleClass="edit-view-frame" stylesheets="@common.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdc.bcmp.views.ProductEdit">
    <children>
       <HBox>
          <children>
@@ -63,7 +62,7 @@
             </HBox>
             <HBox styleClass="ali-cl" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <TextField fx:id="txtName" promptText="Search by product" text="Enter Product name" />
+                  <TextField fx:id="txtName" promptText="Enter Product name" />
                </children>
             </HBox>
             <HBox styleClass="ali-cl" GridPane.columnIndex="1" GridPane.rowIndex="2">

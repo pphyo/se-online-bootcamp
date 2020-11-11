@@ -110,6 +110,41 @@
 	-fx-text-fill: h;
 }
 
+.cart-frame {
+	-fx-pref-width: 400px;
+}
+
+.cart-title {
+	-fx-font-size: 18px;
+	-fx-text-fill: p;
+	-fx-font-family: "JetBrains Mono";
+}
+
+.cart-btn {
+	-fx-pref-width: 200px;
+	-fx-pref-height: 100px;
+	-fx-background-color: p;
+	-fx-border-radius: 20px;
+	-fx-background-radius: 20px;
+}
+
+.cart-btn:hover {
+	-fx-cursor: hand;
+}
+
+.cart-btn > Label, .cart-btn > SVGPath {
+	-fx-fill: s;
+	-fx-text-fill: s;
+	-fx-font-size: 16px;
+	-fx-font-family: "Times New Roman";
+	-fx-font-weight: bold;
+}
+
+.cart-btn:hover > Label, .cart-btn:hover > SVGPath {
+	-fx-fill: h;
+	-fx-text-fill: h;
+}
+
 .scrl-pane {
 	-fx-padding: 0 10 10 10;
 	-fx-fit-to-width: true;
@@ -136,13 +171,13 @@ TextField {
 	-fx-prompt-text-fill: p;
 }
 
-.table-column {
+.column-header {
 	-fx-background-color: p;
 	-fx-border-color: h;
 	-fx-border-width: 1px;
 }
 
-.table-column > .label {
+.column-header > .label {
 	-fx-text-fill: s;
 }
 
@@ -152,6 +187,22 @@ TextField {
 	-fx-border-color: p;
 	-fx-border-width: 1;
 	-fx-prompt-text-fill: p;
+}
+
+.date-picker {
+	-fx-pref-width: 150px;
+	-fx-background-color: transparent;
+	-fx-border-color: p;
+	-fx-border-width: 1;
+	-fx-prompt-text-fill: p;
+}
+
+.date-picker > .date-picker-display-node {
+	-fx-background-color: transparent;	
+}
+
+.date-picker > .arrow-button {
+	-fx-background-color: transparent;
 }
 
 .btn {
@@ -179,6 +230,14 @@ TextField {
 
 .pad10 {
 	-fx-padding: 10px;
+}
+
+.pad10-r {
+	-fx-padding: 0 10 0 0;
+}
+
+.pad10-b {
+	-fx-padding: 0 0 10 0;
 }
 
 .pad10-rbl {

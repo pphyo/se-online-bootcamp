@@ -1,5 +1,6 @@
 package com.jdc.bcmp.views;
 
+import java.io.File;
 import java.util.List;
 
 import com.jdc.bcmp.entity.Category;
@@ -9,6 +10,8 @@ import com.jdc.bcmp.util.StringUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.TilePane;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class CategoryManagement {
 	
@@ -47,12 +50,22 @@ public class CategoryManagement {
 //		container.getChildren().addAll(list);
 		
 		List<Category> catList = catService.getAll();
-		catList.stream().map(CategoryBox::new).forEach(container.getChildren()::add);
+		catList.stream().distinct().sorted().map(CategoryBox::new).forEach(container.getChildren()::add);
 		
 	}
 	
 	public void upload() {
-		
+		try {
+			FileChooser fc = new FileChooser();
+			fc.setTitle("Upload Category");
+			fc.setInitialDirectory(new File(System.getProperty("user.home"), "Desktop"));
+			fc.setSelectedExtensionFilter(new ExtensionFilter("txt, csv, tsv", "*.txt", "*.csv", "*.tsv"));
+			File file = fc.showOpenDialog(name.getScene().getWindow());
+			catService.upload(file);
+			search();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
