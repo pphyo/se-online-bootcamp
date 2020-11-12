@@ -13,8 +13,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class ProductManagement {
 	
@@ -26,6 +28,9 @@ public class ProductManagement {
 	private TextField txtPrice;
 	@FXML
 	private TableView<Product> tblList;
+	@FXML
+	private TableColumn<Product, String> colName;
+	
 	private ProductService proService;
 	
 	public void initialize() {
@@ -42,6 +47,14 @@ public class ProductManagement {
 		tblList.setContextMenu(menu);
 		
 		tblList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		
+		colName.setCellFactory(TextFieldTableCell.forTableColumn());
+		colName.setOnEditCommit(e -> {
+			Product p = e.getRowValue();
+			p.setName(e.getNewValue());
+			proService.save(p);
+			search();
+		});
 		
 	}
 	

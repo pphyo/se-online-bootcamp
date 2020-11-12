@@ -1,5 +1,8 @@
 package com.jdc.bcmp.entity;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class SaleOrder {
 
 	private int id;
@@ -56,5 +59,16 @@ public class SaleOrder {
 	public void setInvoice(Invoice invoice) {
 		this.invoice = invoice;
 	}
-
+	
+	public LocalDate getSaleDate() {
+		return invoice.getInvoiceDate();
+	}
+	
+	public LocalTime getSaleTime() {
+		return invoice.getInvoiceTime();
+	}
+	
+	public String getProductName() {
+		return product.getName();
+	}
 }

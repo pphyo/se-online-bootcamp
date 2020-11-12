@@ -31,14 +31,14 @@
       </HBox>
       <VBox styleClass="pad10-rbl" VBox.vgrow="ALWAYS">
          <children>
-            <TableView fx:id="tblList" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tblList" editable="true" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn maxWidth="2500.0" minWidth="50.0" prefWidth="160.0" text="Category">
                 	<cellValueFactory>
                 		<PropertyValueFactory property="categoryName" />
                 	</cellValueFactory>
                 </TableColumn>
-                <TableColumn maxWidth="2500.0" minWidth="50.0" prefWidth="160.0" text="Product Name">
+                <TableColumn fx:id="colName" maxWidth="2500.0" minWidth="50.0" prefWidth="160.0" text="Product Name">
                 	<cellValueFactory>
                 		<PropertyValueFactory property="name" />
                 	</cellValueFactory>

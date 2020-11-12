@@ -39,6 +39,7 @@ public class ProductEdit {
 	
 	public void initialize() {
 		cbxCategory.getItems().addAll(CategoryService.getInstance().getAll());
+		txtInfo.setText("");
 	}
 	
 	public static void showView(Product p, Consumer<Product> saveListener) {
