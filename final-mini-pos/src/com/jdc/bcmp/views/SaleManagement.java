@@ -129,7 +129,7 @@ public class SaleManagement {
 	}
 
 	public void prepareForNext() {
-		saleOrder = null;
+		dto = null;
 		tblCartList.getItems().clear();
 		tblCartList.getItems().addAll(soList);
 	}

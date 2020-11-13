@@ -1,5 +1,6 @@
 package com.jdc.bcmp.views;
 
+import java.io.File;
 import java.util.List;
 
 import com.jdc.bcmp.entity.Category;
@@ -9,6 +10,7 @@ import com.jdc.bcmp.service.ProductService;
 import com.jdc.bcmp.util.StringUtil;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -17,6 +19,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class ProductManagement {
 	
@@ -30,6 +34,8 @@ public class ProductManagement {
 	private TableView<Product> tblList;
 	@FXML
 	private TableColumn<Product, String> colName;
+	@FXML
+	private Button upload;
 	
 	private ProductService proService;
 	
@@ -56,6 +62,8 @@ public class ProductManagement {
 			search();
 		});
 		
+		upload.setText("_Upload");
+		
 	}
 	
 	public void add() {
@@ -76,7 +84,17 @@ public class ProductManagement {
 	}
 	
 	public void upload() {
-		
+		try {
+			FileChooser fc = new FileChooser();
+			fc.setTitle("Upload Product");
+			fc.setInitialDirectory(new File(System.getProperty("user.home"), "Desktop"));
+			fc.setSelectedExtensionFilter(new ExtensionFilter("txt, csv, tsv", "*.txt", "*.csv", "*.tsv"));
+			File file = fc.showOpenDialog(txtName.getScene().getWindow());
+			proService.upload(file);
+			search();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void edit() {

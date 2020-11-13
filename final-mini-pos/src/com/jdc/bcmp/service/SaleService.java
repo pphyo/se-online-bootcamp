@@ -7,10 +7,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
+import com.jdc.bcmp.entity.Category;
 import com.jdc.bcmp.entity.Invoice;
 import com.jdc.bcmp.entity.Product;
 import com.jdc.bcmp.entity.SaleDTO;
@@ -129,5 +133,113 @@ public class SaleService {
 		
 		return result;
 	}
+	
+	public Map<String, Map<String, Integer>> findData(LocalDate from, LocalDate to) {
+		Map<String, Map<String, Integer>> map = new LinkedHashMap<>();
+		
+		for(Category c : CategoryService.getInstance().getAll()) {
+			map.put(c.getName(), find(c, from, to));
+		}
+		
+		return map;
+	}
+	
+	public Map<String, Integer> find(Category c, LocalDate from, LocalDate to) {
+		
+		String sql = "select sum(so.total) from sale_order so join invoice inv on"
+				+ " so.invoice_id = inv.id join product p on p.id = so.product_id"
+				+ " join category c on c.id = p.category_id where c.id = ?"
+				+ " and inv.inv_date between ? and ? group by c.id";
+		
+		Map<String, Integer> map = new LinkedHashMap<>();
+		
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		
+		try(Connection conn = DatabaseConnection.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(sql)) {
+			
+			while(from.compareTo(to) <= 0) {
+				stmt.setInt(1, c.getId());
+				stmt.setDate(2, Date.valueOf(from));
+				stmt.setDate(3, Date.valueOf(to.plusDays(1)));
+				
+				ResultSet rs = stmt.executeQuery();
+				
+				int value = 0;
+				
+				while(rs.next()) {
+					value = rs.getInt(1);
+				}
+				
+				map.put(from.format(df), value);
+				from = from.plusDays(1);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return map;
+		
+	}
+	
+	
+	
+//	public Map<LocalDate, Map<LocalDate, Integer>> findChartData(LocalDate from, LocalDate to) {
+//		
+//		String sql = "select inv.inv_date, sum(so.total) from sale_order so join invoice inv on so.invoice_id = inv.id where inv.inv_date = ? and inv.inv_date between ? and ?";
+//		
+//		Map<LocalDate, Map<LocalDate, Integer>> result = new LinkedHashMap<>();
+//		
+//		to = null == to ? LocalDate.now() : to;
+//		from = null == from ? to : from;
+//		
+//		try(Connection conn = DatabaseConnection.getConnection();
+//				PreparedStatement stmt = conn.prepareStatement(sql)) {
+//			
+//			while(from.compareTo(to) <= 0) {
+//				stmt.setDate(1, Date.valueOf(from));
+//				stmt.setDate(2, Date.valueOf(from));
+//				stmt.setDate(3, Date.valueOf(to));
+//				
+//				ResultSet rs = stmt.executeQuery();
+//				
+//				while(rs.next()) {
+//					
+//					LocalDate key = rs.getDate(1).toLocalDate();
+//					int value = rs.getInt(2);
+//					
+//					Map<LocalDate, Integer> map = result.get(key);
+//					
+//					if(null == map) {
+//						map = new LinkedHashMap<>();
+//						result.put(key, map);
+//					}
+//					
+//					map.put(key, value);
+//				}
+//
+//			}
+//			
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		while(from.compareTo(to) <= 0) {
+//			
+//			for(LocalDate key : result.keySet()) {
+//				Map<LocalDate, Integer> map = result.get(key);
+//				
+//				if(!map.keySet().contains(from)) {
+//					map.put(from, 0);
+//				}
+//			}
+//			
+//			from = from.plusDays(1);
+//		}
+//		
+//		return result;
+//	}
 	
 }

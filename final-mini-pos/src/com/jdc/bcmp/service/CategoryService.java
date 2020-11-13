@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +39,22 @@ public class CategoryService {
 		}
 	}
 
+	public Category searchByName(String name) {
+		try(Connection conn = DatabaseConnection.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT.concat(" and name = ?"))) {
+			
+			stmt.setString(1, name);
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next())
+				return getObject(rs);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public List<Category> getAll() {
 		
 		List<Category> result = new ArrayList<Category>();
@@ -48,9 +65,7 @@ public class CategoryService {
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next()) {
-				Category c = new Category();
-				c.setId(rs.getInt("id"));
-				c.setName(rs.getString("name"));
+				Category c = getObject(rs);
 				result.add(c);
 			}
 			
@@ -58,6 +73,13 @@ public class CategoryService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	private Category getObject(ResultSet rs) throws SQLException {
+		Category c = new Category();
+		c.setId(rs.getInt("id"));
+		c.setName(rs.getString("name"));
+		return c;
 	}
 	
 	public void upload(File file) throws IOException {

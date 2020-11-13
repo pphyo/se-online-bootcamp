@@ -19,7 +19,7 @@
             <TextField fx:id="txtPrice" promptText="Search by price" />
             <Button mnemonicParsing="false" onAction="#add" styleClass="btn" text="ADD" />
             <Button mnemonicParsing="false" onAction="#search" styleClass="btn" text="SEARCH" />
-            <Button mnemonicParsing="false" onAction="#upload" styleClass="btn" text="UPLOAD" />
+            <Button fx:id="upload" mnemonicParsing="true" onAction="#upload" styleClass="btn" text="UPLOAD" />
             <Button mnemonicParsing="false" onAction="#clear" styleClass="btn" text="CLEAR" />
          </children>
          <styleClass>

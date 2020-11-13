@@ -1,5 +1,8 @@
 package com.jdc.bcmp.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -120,6 +123,25 @@ public class ProductService {
 		p.setDescription(rs.getString("pro_description"));
 		
 		return p;
+	}
+
+	public void upload(File file) throws IOException {
+		Files.lines(file.toPath()).skip(1).map(s -> {
+			String[] arr = s.split("\t");
+			
+			Category c = CategoryService.getInstance().searchByName(arr[0]);
+			Product p = new Product();
+			p.setCategory(c);
+			p.setName(arr[1]);
+			p.setPrice(Integer.parseInt(arr[2]));
+			
+			if(arr.length == 3)
+				p.setDescription("");
+			else
+				p.setDescription(arr[3]);
+			
+			return p;
+		}).forEach(this::save);;	
 	}
 	
 }

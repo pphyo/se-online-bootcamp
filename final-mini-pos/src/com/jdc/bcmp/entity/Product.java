@@ -7,7 +7,7 @@ public class Product {
 	private int price;
 	private String description;
 	private Category category;
-
+	
 	public int getId() {
 		return id;
 	}

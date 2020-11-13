@@ -236,6 +236,14 @@ TextField {
 	-fx-padding: 0 10 0 0;
 }
 
+.pad10-l {
+	-fx-padding: 0 0 0 10;
+}
+
+.pad10-t {
+	-fx-padding: 10 0 0 0;
+}
+
 .pad10-b {
 	-fx-padding: 0 0 10 0;
 }

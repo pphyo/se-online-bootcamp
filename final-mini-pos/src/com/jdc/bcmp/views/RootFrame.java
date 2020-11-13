@@ -19,6 +19,10 @@ public class RootFrame {
 	@FXML
 	private StackPane viewHolder;
 	
+	public void initialize() {
+		loadView("POS Dashboard", "PosDashboard");
+	}
+	
 	public void loadDashboardView(MouseEvent event) {
 		changeActive(event);
 		loadView("POS Dashboard", "PosDashboard");
